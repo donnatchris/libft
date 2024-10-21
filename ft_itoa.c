@@ -1,31 +1,57 @@
 #include "libft.h"
 
-char	*ft_itoa(int n)
+size_t	ft_nbr_len(int n, int sign)
 {
-	char	*str;
-	int		backup_n;
-	int		sign;
-	size_t	str_len;
+	size_t	nbr_len;
+
+	nbr_len = 1;
+	while (n > 9)
+	{
+		n = n / 10;
+		nbr_len++;
+	}
+	if (sign == 1)
+		nbr_len++;
+	return (nbr_len);
+}
+
+char	*ft_nbr(char *nbr, int n, int sign, size_t nbr_len)
+{
 	size_t	i;
 
+	i = nbr_len;
+	nbr[i] = '\0';
+	i--;
+	while (n > 9)
+	{
+		nbr[i] = (char)(n % 10 + '0');
+		n = n / 10;
+		i--;
+	}
+	nbr[i] = (char)(n + '0');
+	if (sign == 1)
+		nbr[0] = '-';
+	return (nbr);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*nbr;
+	size_t	nbr_len;
+	int		sign;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	sign = 0;
 	if (n < 0)
+	{
 		sign = 1;
-	backup_n = n;
-	str_len = 1;
-	while (backup_n > 9)
-	{
-		backup_n = backup_n / 10;
-		str_len++;
+		n = -n;
 	}
-	str = malloc((str_len + 1) * sizeof(char *));
-	if (str == NULL)
+	nbr_len = ft_nbr_len(n, sign);
+	nbr = ft_memalloc(nbr_len + 1);
+	if (nbr == NULL)
 		return (NULL);
-	i = 0;
-	while (i < str_len)
-	{
-		
-		i++;
-	}
-
+	nbr = ft_nbr(nbr, n, sign, nbr_len);
+	return (nbr);
 }

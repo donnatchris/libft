@@ -16,6 +16,7 @@ int		ft_tolower(int c);
 int		ft_atoi(const char *str);
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strcpy(char *dst, const char *src);

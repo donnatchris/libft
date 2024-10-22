@@ -1,11 +1,11 @@
 #include "libft.h"
 
-int	ft_is_white_space(char c)
+static int	ft_is_white_space(char c)
 {
 	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-size_t	ft_trim_len(const char *s)
+static size_t	ft_trim_len(const char *s)
 {
 	size_t	i;
 	size_t	j;
@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s)
 	if (s == NULL)
 		return (NULL);
 	len = ft_trim_len(s);
-	trim = malloc((len + 1) * sizeof(char));
+	trim = (char *) malloc((len + 1) * sizeof(char));
 	if (trim == NULL)
 		return (NULL);
 	i = 0;

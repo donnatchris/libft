@@ -1,6 +1,6 @@
 #include "libft.h"
 
-size_t	ft_nbr_len(int n, int sign)
+static size_t	ft_nbr_len(int n, int sign)
 {
 	size_t	nbr_len;
 
@@ -15,7 +15,7 @@ size_t	ft_nbr_len(int n, int sign)
 	return (nbr_len);
 }
 
-char	*ft_nbr(char *nbr, int n, int sign, size_t nbr_len)
+static char	*ft_nbr(char *nbr, int n, int sign, size_t nbr_len)
 {
 	size_t	i;
 

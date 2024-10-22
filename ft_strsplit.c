@@ -1,11 +1,11 @@
 #include "libft.h"
 
-int	ft_is_split(char c1, char c2)
+static int	ft_is_split(char c1, char c2)
 {
 	return (c1 == c2);
 }
 
-int	ft_word_count(char const *s, char c)
+static int	ft_word_count(char const *s, char c)
 {
 	size_t	i;
 	int		count;
@@ -31,7 +31,7 @@ int	ft_word_count(char const *s, char c)
 	return (count);
 }
 
-void	ft_free_split(char **str_split, int words)
+static void	ft_free_split(char **str_split, int words)
 {
 	size_t	i;
 
@@ -44,7 +44,7 @@ void	ft_free_split(char **str_split, int words)
 	free(str_split);
 }
 
-char	**ft_allocate(char const *s, char c, int words, char **str_split)
+static char	**ft_allocate(char const *s, char c, int words, char **str_split)
 {
 	size_t	i;
 	size_t	j;
@@ -79,7 +79,7 @@ char	**ft_strsplit(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = ft_word_count(s, c);
-	str_split = malloc((words + 1) * sizeof(char *));
+	str_split = (char **) malloc((words + 1) * sizeof(char *));
 	if (str_split == NULL)
 		return (NULL);
 	if (ft_allocate(s, c, words, str_split) == NULL)

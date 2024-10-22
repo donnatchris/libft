@@ -44,6 +44,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_strclr(char *s);
 void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
+void	ft_striter(char *s, void (*f)(char *));
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);

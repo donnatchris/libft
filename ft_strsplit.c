@@ -33,7 +33,7 @@ static int	ft_word_count(char const *s, char c)
 
 static void	ft_free_split(char **str_split, int words)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < words)
@@ -46,8 +46,8 @@ static void	ft_free_split(char **str_split, int words)
 
 static char	**ft_allocate(char const *s, char c, int words, char **str_split)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 	size_t	backup_i;
 
 	i = 0;
@@ -83,6 +83,9 @@ char	**ft_strsplit(char const *s, char c)
 	if (str_split == NULL)
 		return (NULL);
 	if (ft_allocate(s, c, words, str_split) == NULL)
+	{
+		free(str_split);
 		return (NULL);
+	}
 	return (str_split);
 }

@@ -337,9 +337,15 @@ t_list	*ft_lstnew(void const *content, size_t content_size);
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 //	Takes as a parameter the adress of a pointer on a nod, frees the memory
-//		of the content of that nod using the del function passed as a parameter,
-//		then frees the memory of the nod itselfwith free().
+//		of the content of that nod using the del() function passed as a
+//		parameter then frees the memory of the nod itselfwith free().
 //		Finally, the pointer on the freed nod is set to NULL.
 //	!! The memory of the next field is not freed.
+
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+//	Takes as a parameter the adress of a pointer on a nod and frees the memory
+//		of this nod and that all of his successors one after the other using
+//		del() and free().
+//		Finally sets the pointer on the first now-freed nod to NULL.
 
 #endif

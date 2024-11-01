@@ -326,4 +326,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 LIST MANIPULATION FUNCTIONS
 *******************************************************************************/
 
+t_list	*ft_lstnew(void const *content, size_t content_size);
+//	Allocates (using malloc()) and returns a "fresh" link. The content and
+//		content_size fields in the new link are initialized by copying the
+//		function parameters.
+//		If content is NULL, the content field is set to NULL and content_size
+//		to 0.
+//		The next fiels is initialized to NULL.
+//	-> Returns the "fresh" link, or NULL if allocation fails.
+
 #endif

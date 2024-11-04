@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 15:46:32 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:50:57 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ size_t	strlcpy(char *dst, const char *src, size_t size);
 //	Copies up to size - 1 characters from the NUL-terminated string src to dst,
 //		NUL-terminating the result.
 //		It takes the full size of the buffer (not just the length) and
-//		guarantee to NUL-terminate the result (as long as size is larger than 0).
+//		guarantee to NUL-terminate the result (only if size is larger than 0).
 //	-> Returns the lenght of src (makes truncation detection easier).
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
@@ -189,6 +189,12 @@ void	ft_bzero(void *s, size_t n);
 /*******************************************************************************
 MEMORY MANIPULATION FUNCTIONS
 ******************************************************************************/
+
+void	*ft_calloc(size_t nmemb, size_t size);
+//
+//
+//
+//
 
 void	*ft_memset(void *b, int c, size_t len);
 //	Writes len bytes of value c (converted to an unsigned char) to the string b.

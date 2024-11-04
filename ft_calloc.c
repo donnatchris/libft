@@ -17,11 +17,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	char	*calloc;
 	size_t	i;
 
-	if (size == 0 || nmemb == 0)
+	if (nmemb > 2147483647 / size)
 		return (NULL);
-	if (size * nmemb > 2147483647)
-		return (NULL);
-	calloc = (char *) malloc(nmemb * size * sizeof(char));
+	calloc = (char *) malloc(nmemb * size);
 	if (calloc == NULL)
 		return (NULL);
 	i = 0;
@@ -30,7 +28,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		calloc[i] = 0;
 		i++;
 	}
-	return (calloc);
+	return ((void *) calloc);
 }
 /*
 

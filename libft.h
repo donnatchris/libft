@@ -191,10 +191,13 @@ MEMORY MANIPULATION FUNCTIONS
 ******************************************************************************/
 
 void	*ft_calloc(size_t nmemb, size_t size);
-//
-//
-//
-//
+//	Allocates memory for an array of nmemb elements of size bytes each.
+//		The  memory  is set to zero.
+//	-> Returns a pointer to the allocated memory.
+//		If nmemb or size is wero, returns a unique pointer value that can be
+//		passed to free.
+//		If the multiplication of nmemb and size would result in integer overflow,
+//		calloc() returns NULL.
 
 void	*ft_memset(void *b, int c, size_t len);
 //	Writes len bytes of value c (converted to an unsigned char) to the string b.

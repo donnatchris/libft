@@ -37,4 +37,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 //		function, then with free().
 //	!! The memory of the next field is not freed.
 
+void	ft_lstadd_front(t_list **lst, t_list *new);
+//	Add the element new at the start of the list
+//		(lst is the adress of the first element of the list,
+//		and new is the adress of the pointer to the element to be added).
+
 #endif

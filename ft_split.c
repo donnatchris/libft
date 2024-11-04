@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 13:42:36 by chdonnat          #+#    #+#             */
+/*   Updated: 2024/11/04 13:59:20 by chdonnat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_is_split(char c1, char c2)
@@ -46,8 +58,8 @@ static void	ft_free_split(char **str_split, int words)
 
 static char	**ft_allocate(char const *s, char c, int words, char **str_split)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	size_t	backup_i;
 
 	i = 0;
@@ -71,7 +83,7 @@ static char	**ft_allocate(char const *s, char c, int words, char **str_split)
 	return (str_split);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**str_split;
 	int		words;

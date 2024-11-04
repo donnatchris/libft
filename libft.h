@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
+/*   Updated: 2024/11/04 14:13:21 by chdonnat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -13,19 +25,7 @@ typedef struct s_list
 
 /*******************************************************************************
 PRINT AND WRITE FUNCTIONS
-*******************************************************************************/
-
-void	ft_putchar(int c);
-//	Prints the character c to the standard output.
-
-void	ft_putstr(char const *s);
-//	Prints the string s to the standard output.
-
-void	ft_putendl(char const *s);
-//	Prints the string s followed by '\n' to the standard output.
-
-void	ft_putnbr(int n);
-//	Prints the integer n to the standard output.
+******************************************************************************/
 
 void	ft_putchar_fd(char c, int fd);
 //	Writes the character c to the file descriptor fd.
@@ -41,7 +41,7 @@ void	ft_putnbr_fd(int n, int fd);
 
 /*******************************************************************************
 CHARACTER MANIPULATION FUNCTIONS
-*******************************************************************************/
+******************************************************************************/
 
 int		ft_isalpha(int c);
 //	Tests if c character is a letter (the value of the argument must be
@@ -90,18 +90,12 @@ int		ft_tolower(int c);
 
 /*******************************************************************************
 STRING MANIPULATION FUNCTIONS
-*******************************************************************************/
+******************************************************************************/
 
 size_t	ft_strlen(const char *s);
 //	Computes the length of the string s.
 //	-> Returns the number of characters that precede the terminating NULL
 //		character.
-
-int		ft_strcmp(const char *s1, const char *s2);
-//	Lexicographically compare the null-terminated strings s1 and s2
-//		(using unsigned characters).
-//	-> Return an integer greater than, equal to, or less than 0, according as
-//		the string s1 is greater than, equal to, or less than the string s2.
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 //	Like ft_strcmp() but ft_strncmp() compares not more than n characters.
@@ -115,48 +109,6 @@ int		ft_atoi(const char *str);
 //	-> Returns the integer represented by the initial numeric characters of
 //		the string str.
 
-int		ft_strequ(char const *s1, char const *s2);
-//	Compares strings s1 and s2 lexicographically.
-//	-> Returns 1 if the two strings are equal, otherwise 0.
-
-int		ft_strnequ(char const *s1, char const *s2, size_t n);
-//	Compares strings s1 and s2 lexicographically
-//		up to a maximum of n charactrers or until a '\0' is encountered.
-//	-> Returns 1 if the two strings are equal, otherwise 0.
-
-char	*ft_strcpy(char *dst, const char *src);
-//	Copies the string src to dst (including the terminating ‘\0’ character.)
-//	!! The source and destination strings should not overlap,
-//		as the behavior is undefined.
-//	-> Returns dst.
-
-char	*ft_strncpy(char *dst, const char *src, size_t len);
-//	Like ft_strcpy() but copies at most len characters from src into dst
-//		(if src is less than len characters long, the remainder of dst is
-//		filled with ‘\0’ character; otherwise, dst is not terminated.
-//	!! The source and destination strings should not overlap,
-//		as the behavior is undefined.
-//	-> Returns dst.
-
-char	*ft_strcat(char *s1, const char *s2);
-//	Appends a copy of the null-terminated string s2 to the end of the
-//		null-terminated string s1, then add a terminating ‘\0’
-//		(the string s1 must have sufficient space to hold the result)
-//		(the source and destination strings should not overlap,
-//		as the behavior is undefined).
-//	!! ft_strcat() is easily misused in a manner which enables malicious users
-//		to arbitrarily change a running program's functionality through a
-//		buffer overflow attack.
-//	-> Returns the pointer s1.
-
-char	*ft_strncat(char *s1, const char *s2, size_t n);
-//	Like ft_strcat() but appends not more than n characters from s2,
-//		and then adds a terminating ‘\0’
-//		(the string s1 must have sufficient space to hold the result)
-//		(the source and destination strings should not overlap,
-//		as the behavior is undefined).
-//	-> Returns the pointer s1.
-
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 //	Appends string src to the end of string dst
 //		(it will append at most dstsize - strlen(dst) - 1 characters),
@@ -166,14 +118,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 //	-> Returns the total length of the string it tried to create
 //		(that means the initial length of dst plus the length of src).
 //	!! If the return value is >= dstsize, the output string has been truncated.
-
-char	*ft_strstr(const char *haystack, const char *needle);
-//	Locates the first occurrence of the null-terminated string needle in
-//		the null-terminated string haystack.
-//	-> If needle is an empty string, haystack is returned,
-//		if needle occurs nowhere in haystack, NULL is returned,
-//		otherwise a pointer to the first character
-//		of the first occurrence of needle is returned.
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 //	Locates the first occurrence of the null-terminated string needle in the
@@ -203,11 +147,6 @@ char	*ft_strdup(const char *s1);
 //		an argument to the function free())
 //		(if insufficient memory is available, NULL is returned).
 
-char	*ft_strnew(size_t size);
-//	Allocates with malloc() and creates a string of size "size" terminated by
-//		'\0' (each character in the string is initialized to '\0').
-//	-> Returns the newly created string, or NULL if allocation fails.
-
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 //	Allocates with malloc() and copies a substring of string s
 //		(the substring begins at at index start and has a lenght of len).
@@ -231,17 +170,10 @@ char	*ft_itoa(int n);
 //		representing the integer n.
 //	-> Returns the newly created string, or NULL if allocation fails.
 
-char	**ft_strsplit(char const *s, char c);
+char	**ft_split(char const *s, char c);
 //	Allocates with malloc() and creates an array of null-terminated strings
 //		resulting from splitting the string s according to the character c.
 //	-> Returns the newly created array of strings, or NULL if allocation fails.
-
-void	ft_strclr(char *s);
-//	Assign the value '\0' to all characters of the string passed as a parameter.
-
-void	ft_strdel(char **as);
-//	Takes as a parameter the adress of the string as which must be freed with
-//		free(), and sets its pointer to NULL.
 
 void	ft_bzero(void *s, size_t n);
 //	Writes n zeroed bytes to the string s.
@@ -249,11 +181,7 @@ void	ft_bzero(void *s, size_t n);
 
 /*******************************************************************************
 MEMORY MANIPULATION FUNCTIONS
-*******************************************************************************/
-
-void	ft_memdel(void **ap);
-//	Takes as a parameter the adress of the pointer ap whose pointed area must
-//		be freed with free(), then the pointer is set to NULL.
+******************************************************************************/
 
 void	*ft_memset(void *b, int c, size_t len);
 //	Writes len bytes of value c (converted to an unsigned char) to the string b.
@@ -271,19 +199,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 //	!! If dst and src overlap, behavior is undefined.
 //	-> Returns the original value of dst.
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
-//	Copies bytes from string src to string dst.
-//		If the character c (as converted to an unsigned char) occurs in the
-//		string src, the copy stops and a pointer to the byte after the copy of c
-//		in the string dst is returned. Otherwise, n bytes are copied, and a
-//		NULL pointer is returned.
-//	!! The source and destination strings should not overlap,
-//		as the behavior is undefined.
-//	-> Returns a pointer to the byte after the copy of c in the string.
-//		Otherwise (if it didn't find c), n bytes are copied,
-//		and a NULL pointer is returned.
-
-void	*ft_memmove(void *dst, const void *src, size_t len);
+void	*ft_memmove(void *dst, const void *src, size_t n);
 //	Copies len bytes from string src to string dst. The two strings may
 //		overlap; the copy is always done in a non-destructive manner.
 //	-> Returns the original value of dst.
@@ -294,27 +210,13 @@ void	*ft_memchr(const void *s, int c, size_t n);
 //	-> Returns a pointer to the byte located,
 //		or NULL if no such byte exists within n bytes.
 
-void	*ft_memalloc(size_t size);
-//	Allocates (with malloc()) and returns a fresh memory area.
-//		The allocated memory is initialized to 0.
-//	-> Returns the allocated memory area, or NULL if allocation fails.
-
 /*******************************************************************************
 CALLBACK FUNCTIONS
-*******************************************************************************/
-
-void	ft_striter(char *s, void (*f)(char *));
-//	Applies the function f to each character of the string s.
+******************************************************************************/
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 //	Applies the function f to each character of the string s,
 //		specifying its index as the first argument.
-
-char	*ft_strmap(char const *s, char (*f)(char));
-//	Applies the function f to each character of the string s
-//		to create a new string allocated with malloc()
-//		resulting from the successive applications of f.
-//	-> Returns the new created string.
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));	
 //	Applies the function f to each character of the string s,
@@ -324,7 +226,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /*******************************************************************************
 LIST MANIPULATION FUNCTIONS
-*******************************************************************************/
+******************************************************************************/
 
 t_list	*ft_lstnew(void const *content, size_t content_size);
 //	Allocates (using malloc()) and returns a "fresh" link. The content and
@@ -341,11 +243,5 @@ void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 //		parameter then frees the memory of the nod itselfwith free().
 //		Finally, the pointer on the freed nod is set to NULL.
 //	!! The memory of the next field is not freed.
-
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-//	Takes as a parameter the adress of a pointer on a nod and frees the memory
-//		of this nod and that all of his successors one after the other using
-//		del() and free().
-//		Finally sets the pointer on the first now-freed nod to NULL.
 
 #endif

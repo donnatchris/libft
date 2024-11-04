@@ -30,20 +30,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return ((void *) calloc);
 }
-/*
-
-  The malloc() function allocates size bytes and returns a pointer to the allocated memory.  The memory is not initialized.  If size is 0,
-       then malloc() returns either NULL, or a unique pointer value that can later be successfully passed to free().
-
-       The free() function frees the memory space pointed to by ptr, which must have been returned by a previous call to malloc(), calloc(), or
-       realloc().   Otherwise, or if free(ptr) has already been called before, undefined behavior occurs.  If ptr is NULL, no operation is per‐
-       formed.
-
-       The calloc() function allocates memory for an array of nmemb elements of size bytes each and returns a pointer to the allocated  memory.
-       The  memory  is set to zero.  If nmemb or size is 0, then calloc() returns either NULL, or a unique pointer value that can later be suc‐
-       cessfully passed to free().  If the multiplication of nmemb and size would result in integer overflow, then calloc() returns  an  error.
-       By  contrast,  an  integer  overflow  would not be detected in the following call to malloc(), with the result that an incorrectly sized
-       block of memory would be allocated:
-
-           malloc(nmemb * size);
-*/

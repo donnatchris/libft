@@ -16,13 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
-
 /*******************************************************************************
 PRINT AND WRITE FUNCTIONS
 ******************************************************************************/
@@ -154,7 +147,7 @@ char	*ft_strdup(const char *s1);
 //		an argument to the function free())
 //		(if insufficient memory is available, NULL is returned).
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 //	Allocates with malloc() and copies a substring of string s
 //		(the substring begins at at index start and has a lenght of len).
 //	!! If start and len do not specify a valid substring, behavior is undefined.
@@ -196,7 +189,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 //	-> Returns a pointer to the allocated memory.
 //		If nmemb or size is wero, returns a unique pointer value that can be
 //		passed to free.
-//		If the multiplication of nmemb and size would result in integer overflow,
+//		If the multiplication of nmemb * size would result in integer overflow,
 //		calloc() returns NULL.
 
 void	*ft_memset(void *b, int c, size_t len);
@@ -239,25 +232,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 //		specifying the characters's index, to create a new string
 //		allocated with malloc() resulting from the successive applications of f.
 //	-> Returns the new created string.
-
-/*******************************************************************************
-LIST MANIPULATION FUNCTIONS
-******************************************************************************/
-
-t_list	*ft_lstnew(void const *content, size_t content_size);
-//	Allocates (using malloc()) and returns a "fresh" link. The content and
-//		content_size fields in the new link are initialized by copying the
-//		function parameters.
-//		If content is NULL, the content field is set to NULL and content_size
-//		to 0.
-//		The next fiels is initialized to NULL.
-//	-> Returns the "fresh" link, or NULL if allocation fails.
-
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-//	Takes as a parameter the adress of a pointer on a nod, frees the memory
-//		of the content of that nod using the del() function passed as a
-//		parameter then frees the memory of the nod itselfwith free().
-//		Finally, the pointer on the freed nod is set to NULL.
-//	!! The memory of the next field is not freed.
 
 #endif

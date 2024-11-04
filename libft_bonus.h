@@ -42,4 +42,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 //		(lst is the adress of the first element of the list,
 //		and new is the adress of the pointer to the element to be added).
 
+int		ft_lstsize(t_list *lst);
+//	Counts the number of elements of the list.
+//		Lst is the start of the list.
+//	-> Returns the count.
+
 #endif

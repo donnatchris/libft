@@ -47,4 +47,8 @@ int		ft_lstsize(t_list *lst);
 //		Lst is the start of the list.
 //	-> Returns the count.
 
+t_list	ft_lstlast(t_list *lst);
+//	Finds the last element of the list (where lst is the first element).
+//	-> Returns the last element of the list.
+
 #endif

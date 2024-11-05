@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 11:46:58 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:06:28 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ char	*ft_strdup(const char *s);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 //	Allocates with malloc() and copies a substring of string s
-//		(the substring begins at at index start and has a lenght of len).
+//		(the substring begins at index start and has a lenght of len).
 //	!! If start and len do not specify a valid substring, behavior is undefined.
 //	-> Returns the newly created copy, or NULL if allocation fails.
 
@@ -158,12 +158,11 @@ char	*ft_strjoin(char const *s1, char const *s2);
 //		concatenation of s1 (prefix string) and s2 (sufix string).
 //	-> Returns the newly created string, or NULL if allocation fails.
 
-char	*ft_strtrim(char const *s);
-//	Allocates with malloc() and creates a copy of string s
-//		without the leading and trailing whitespace characters
-//		(whitespaces characters are considerated to be ' ', '\n', and '\t').
+char	*ft_strtrim(char const *s1, char const *set);
+//	Allocates with malloc() and creates a copy of string s1
+//		without the leading and trailing characters specified in set.
 //	-> Returns the newly created string (if s contains no leading or trailing
-//		whitespace, returns a copy of s), or NULL if allocation fails.
+//		set characters, returns a copy of s), or NULL if allocation fails.
 
 char	*ft_itoa(int n);
 //	Allocates with malloc() and creates a new null-terminated string

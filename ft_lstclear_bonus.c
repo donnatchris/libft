@@ -6,11 +6,11 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 09:03:53 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 09:21:11 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:11:30 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

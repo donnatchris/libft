@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:51:12 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 16:25:29 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:44:07 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*calloc;
 	size_t	i;
+	size_t	total;
 
-	if (nmemb > 2147483647 / size)
+	total = nmemb * size;
+	if (total / nmemb != size)
 		return (NULL);
 	calloc = (char *) malloc(nmemb * size);
 	if (calloc == NULL)

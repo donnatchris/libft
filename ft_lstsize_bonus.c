@@ -6,11 +6,11 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:51:21 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 08:51:22 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:10:16 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

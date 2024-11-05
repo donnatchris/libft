@@ -6,11 +6,11 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:37:22 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 13:37:25 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:11:15 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

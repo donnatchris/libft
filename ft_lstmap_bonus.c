@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 09:53:52 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 15:12:10 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:04:32 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,31 +59,41 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	}
 }
 
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*current_lst;
+
+	if (*lst == NULL)
+	{
+		*lst = new;
+		new->next = NULL;
+	}
+	else
+	{
+		current_lst = *lst;
+		while (current_lst->next != NULL)
+			current_lst = current_lst->next;
+		current_lst->next = new;
+		new->next = NULL;
+	}
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_lst;
-	t_list	*current_lst;
-	t_list	*current_new_lst;
+	t_list	*first;
+	t_list	*new;
+	t_list	*current;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new_lst = (void *) malloc(ft_lstsize(lst));
-	if (new_lst == NULL)
-		return (NULL);
-	current_lst = lst;
-	current_new_lst = new_lst;
-	while (current_lst != NULL)
+	first = NULL;
+	first = f(ft_lstnew(lst->content));
+	current = lst->next;
+	while (current != NULL)
 	{
-		current_new_lst = ft_lstnew(current_lst->content);
-		if (current_new_lst == NULL)
-		{
-			ft_lstclear(&new_lst, del);
-			free(new_lst);
-			return (NULL);
-		}
-		current_new_lst->next = current_new_lst + 1;
-		current_lst = current_lst->next;
-		current_new_lst = current_new_lst->next;
+		new = f(ft_lstnew(current->content));
+		ft_lstadd_back(&first, new);
+		current = current->next;
 	}
-	return (new_lst);
+	return (first);
 }

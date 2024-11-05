@@ -37,7 +37,7 @@ $(NAME): $(OBJ_FILES)
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-bonus: $(BONUS_OBJ_FILES)
+bonus: $(OBJ_FILES) $(BONUS_OBJ_FILES)
 	ar rcs $(NAME) $(BONUS_OBJ_FILES)
 
 clean:

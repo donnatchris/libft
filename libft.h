@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 12:06:28 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:13:59 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ PRINT AND WRITE FUNCTIONS
 void	ft_putchar_fd(char c, int fd);
 //	Writes the character c to the file descriptor fd.
 
-void	ft_putstr_fd(char const *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
 //	Writes the string s to the file descriptor fd.
 
-void	ft_putendl_fd(char const *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 //	Writes the string s followed by '\n' to the file descriptor fd.
 
 void	ft_putnbr_fd(int n, int fd);

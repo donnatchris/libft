@@ -71,7 +71,7 @@ static char	**ft_allocate(char const *s, char c, int words, char **str_split)
 		backup_i = i;
 		while (!ft_is_split(s[i], c) && s[i])
 			i++;
-		str_split[j] = ft_strsub(s, (unsigned int) backup_i, i - backup_i);
+		str_split[j] = ft_substr(s, (unsigned int) backup_i, i - backup_i);
 		if (str_split[j] == NULL)
 		{
 			ft_free_split(str_split, j);

@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 		n = -n;
 	}
 	nbr_len = ft_nbr_len(n, sign);
-	nbr = ft_memalloc(nbr_len + 1);
+	nbr = (char *) malloc((nbr_len + 1) * sizeof(char));
 	if (nbr == NULL)
 		return (NULL);
 	nbr = ft_nbr(nbr, n, sign, nbr_len);

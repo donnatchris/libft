@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 15:50:57 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 11:46:58 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,18 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 //	-> Return an integer greater than, equal to, or less than 0, according as
 //		the string s1 is greater than, equal to, or less than the string s2.
 
-int		ft_atoi(const char *str);
-//	Converts the initial portion of the string pointed to by str to int
+int		ft_atoi(const char *nptr);
+//	Converts the initial portion of the string pointed to by nptr to int
 //		representation, ignoring leading spaces and stopping conversion at
 //		first non-numeric character.
 //	-> Returns the integer represented by the initial numeric characters of
-//		the string str.
+//		the string nptr.
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 //	Appends string src to the end of string dst
-//		(it will append at most dstsize - strlen(dst) - 1 characters),
+//		(it will append at most size - strlen(dst) - 1 characters),
 //		it will then null-terminate,
-//		unless dstsize is 0 or the original dst string was longer than dstsize.
+//		unless size is 0 or the original dst string was longer than dstsize.
 //		!! If the src and dst strings overlap, the behavior is undefined.
 //	-> Returns the total length of the string it tried to create
 //		(that means the initial length of dst plus the length of src).
@@ -119,14 +119,14 @@ size_t	strlcpy(char *dst, const char *src, size_t size);
 //		guarantee to NUL-terminate the result (only if size is larger than 0).
 //	-> Returns the lenght of src (makes truncation detection easier).
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-//	Locates the first occurrence of the null-terminated string needle in the
-//		string haystack, where not more than len characters are searched
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+//	Locates the first occurrence of the null-terminated string little in the
+//		string big, where not more than len characters are searched
 //		(characters that appear after a ‘\0’ character are not searched).
-//	-> If needle is an empty string, haystack is returned,
-//		if needle occurs nowhere in haystack, NULL is returned,
+//	-> If little is an empty string, big is returned,
+//		if little occurs nowhere in big, NULL is returned,
 //		otherwise a pointer to the first character of the first occurrence
-//		of needle is returned.
+//		of little is returned.
 
 char	*ft_strchr(const char *s, int c);
 //	Locates the first occurrence of c (converted to a char) in the string
@@ -141,8 +141,8 @@ char	*ft_strrchr(const char *s, int c);
 //	-> Returns a pointer to the located character,
 //		or NULL if the character does not appear in the string.
 
-char	*ft_strdup(const char *s1);
-//	Allocates sufficient memory for a copy of the string s1 ande does the copy.
+char	*ft_strdup(const char *s);
+//	Allocates sufficient memory for a copy of the string s ande does the copy.
 //	-> Returns a pointer to the copy (the pointer may subsequently be used as
 //		an argument to the function free())
 //		(if insufficient memory is available, NULL is returned).
@@ -175,13 +175,13 @@ char	**ft_split(char const *s, char c);
 //		resulting from splitting the string s according to the character c.
 //	-> Returns the newly created array of strings, or NULL if allocation fails.
 
-void	ft_bzero(void *s, size_t n);
-//	Writes n zeroed bytes to the string s.
-//		If n is zero, ft_bzero() does nothing.
-
 /*******************************************************************************
 MEMORY MANIPULATION FUNCTIONS
 ******************************************************************************/
+
+void	ft_bzero(void *s, size_t n);
+//	Writes n zeroed bytes to the string s.
+//		If n is zero, ft_bzero() does nothing.
 
 void	*ft_calloc(size_t nmemb, size_t size);
 //	Allocates memory for an array of nmemb elements of size bytes each.
@@ -192,8 +192,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 //		If the multiplication of nmemb * size would result in integer overflow,
 //		calloc() returns NULL.
 
-void	*ft_memset(void *b, int c, size_t len);
-//	Writes len bytes of value c (converted to an unsigned char) to the string b.
+void	*ft_memset(void *s, int c, size_t n);
+//	Writes n bytes of value c (converted to an unsigned char) to the string s.
 //	-> Returns its first argument.
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n);

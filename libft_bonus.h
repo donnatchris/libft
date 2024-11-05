@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 15:50:57 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/05 09:53:32 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
 //	Add the element new at the start of the list
-//		(lst is the address of the first element of the list,
+//		(lst is the address of the pointer to the first element of the list,
 //		and new is the address of the pointer to the element to be added).
 
 int		ft_lstsize(t_list *lst);
@@ -50,5 +50,31 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 //	Finds the last element of the list (where lst is the first element).
 //	-> Returns the last element of the list.
+
+void	ft_lstadd_back(t_list **lst, t_list *new);
+//	Add the element new to the end of the list.
+//		(lst is the adress of the pointer to  the first element of the list,
+//		and new is the address of the pointer to the element to be added).
+
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+//	Deletes and frees the memory of the element passed as parameter and of all
+//		the following elements, using the del() function and free().
+//		Sets the initial pointer to NULL.
+//		(lst is the address to the pointer to an element and del is the adress
+//		of the function that can suppress the content of an element).
+
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+//	Iterates over the list lst and applies the function f() to the content
+//		of each element (lst is the address of the pointer to an element and
+//		f is the address of the function to apply).
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+//	Iterates over the list lst and applies the function f() to the content
+//		of each element.
+//		Creates a new list resulting from the successive applications of
+//		f().
+//		The function del() is here to destroy the content of an element if
+//		needed.
+//	-> Returns the new list otr NULL if allocation fails.
 
 #endif

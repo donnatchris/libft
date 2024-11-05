@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:25:12 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 11:53:07 by chdonnat         ###   ########.fr       */
+/*   Created: 2024/11/05 09:03:53 by chdonnat          #+#    #+#             */
+/*   Updated: 2024/11/05 09:21:11 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t		i;
-	char		*dup;
+	t_list	*current_lst;
+	t_list	*temp_lst;
 
-	dup = (char *) malloc (sizeof(*dup) * (ft_strlen(s) + 1));
-	if (dup == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	if (*lst && del)
 	{
-		dup[i] = s[i];
-		i++;
+		current_lst = *lst;
+		while (current_lst != NULL)
+		{
+			temp_lst = current_lst;
+			current_lst = temp_lst->next;
+			del(temp_lst->content);
+			free(temp_lst);
+		}
+		*lst = NULL;
 	}
-	dup[i] = '\0';
-	return (dup);
 }

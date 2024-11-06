@@ -6,26 +6,28 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:23:46 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 14:22:27 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/06 13:33:08 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t		i;
-	char		*d;
-	const char	*s;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	d = (char *) dest;
-	s = (const char *) src;
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *) dest;
+	s = (unsigned char *) src;
 	i = 0;
 	if (d > s)
 	{
-		while (n != 0)
+		while (n > 0)
 		{
-			d[n] = s[n];
+			d[n - 1] = s[n - 1];
 			n--;
 		}
 	}
@@ -38,4 +40,26 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	return (dest);
+}
+*/
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;
+
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *) dest;
+	s = (unsigned char *) src;
+	if (d > s)
+	{
+		while (n > 0)
+		{
+			d[n - 1] = s[n - 1];
+			n--;
+		}
+		return (dest);
+	}
+	return (ft_memcpy(dest, src, n));
 }

@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:22:54 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 12:23:26 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/06 13:37:17 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char			*d;
 	const char		*s;
 
+	if (!dst && !src)
+		return (NULL);
 	d = (char *) dst;
 	s = (const char *) src;
 	i = 0;

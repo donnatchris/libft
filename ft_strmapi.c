@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:30:34 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 13:30:36 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:02:20 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL || f == NULL)
 		return (NULL);
-	new = (char *) calloc(ft_strlen(s) + 1, 1);
+	new = (char *) ft_calloc(ft_strlen(s) + 1, 1);
 	if (new == NULL)
 		return (NULL);
 	i = 0;

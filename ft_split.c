@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:42:36 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/04 13:59:20 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:54:46 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static void	ft_free_split(char **str_split, int words)
 		free(str_split[i]);
 		i++;
 	}
-	free(str_split);
 }
 
 static char	**ft_allocate(char const *s, char c, int words, char **str_split)

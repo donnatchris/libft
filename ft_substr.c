@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:01:57 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/06 13:25:02 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/07 09:56:45 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*cpy;
 	size_t	i;
+	size_t	cpy_len;
 
 	if (start >= ft_strlen(s))
 	{
@@ -23,7 +24,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		cpy[0] = '\0';
 		return (cpy);
 	}
-	cpy = (char *) malloc((len + 1) * sizeof(char));
+	if (ft_strlen(s) - start < len)
+		cpy_len = ft_strlen(s) - start;
+	else
+		cpy_len = len;
+	cpy = (char *) malloc((cpy_len + 1) * sizeof(char));
 	if (cpy == NULL)
 		return (NULL);
 	i = 0;

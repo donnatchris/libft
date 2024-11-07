@@ -6,7 +6,7 @@
 /*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/11/05 15:08:16 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:07:18 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 //		(that means the initial length of dst plus the length of src).
 //	!! If the return value is >= dstsize, the output string has been truncated.
 
-size_t	strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 //	Copies up to size - 1 characters from the NUL-terminated string src to dst,
 //		NUL-terminating the result.
 //		It takes the full size of the buffer (not just the length) and

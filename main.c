@@ -705,7 +705,7 @@ int		main(void)
 //	LSTNEW
 	printf("\033[33m\n********************\nft_lstnew\n\033[0m");
 	t_list	*lst1 = ft_lstnew(ft_strdup("element"));
-	printf("Avec element ");
+	printf("Creation d un element ");
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "element", (char *) lst1->content);
 	ft_ok(ft_str_cmp("element", (char *) lst1->content));
 
@@ -713,7 +713,7 @@ int		main(void)
 	printf("\033[33m\n********************\nft_lstadd_back\n\033[0m");
 	t_list	*lst2 = ft_lstnew(ft_strdup("nouveau premier element"));
 	ft_lstadd_front(&lst1, lst2);
-	printf("Avec nouveau premier element ");
+	printf("Ajout d un nouveau premier element ");
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "nouveau premier element", (char *) lst1->content);
 	ft_ok(ft_str_cmp("nouveau premier element", (char *) lst1->content));
 
@@ -725,13 +725,13 @@ int		main(void)
 
 //	LSTLAST
 	printf("\033[33m\n********************\nft_lstlast\n\033[0m");
-	printf("Avec la liste precedente ");
+	printf("Afficher le dernier element de la liste ");
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "element", (char *) ft_lstlast(lst1)->content);
 	ft_ok(ft_str_cmp("element", (char *) ft_lstlast(lst1)->content));
 
 //	LSTADD_BACK
 	printf("\033[33m\n********************\nft_lstadd_back\n\033[0m");
-	printf("Avec dernier element ");
+	printf("Ajout d un nouvel element a la fin de la liste ");
 	t_list	*lst3 = ft_lstnew(ft_strdup("dernier element"));
 	ft_lstadd_back(&lst1, lst3);
 	t_list	*last = lst1;
@@ -762,7 +762,7 @@ int		main(void)
 
 //	LSTMAP
 	printf("\033[33m\n********************\nft_lstmap\n\033[0m");
-	printf("En creant une nouvelle liste en minuscule ");
+	printf("En creant une nouvelle liste a partir de la precedente passee en minuscule\n");
 	t_list	*map;
 	map = ft_lstmap(lst1, &ft_lowlstptr, &del);
 	last = map;
@@ -771,18 +771,10 @@ int		main(void)
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "dernier element", (char *) last->content);
 	ft_ok(ft_str_cmp("dernier element", (char *) last->content));
 
-
-
-
-/*
 //	LSTCLEAR
 	printf("\033[33m\n********************\nft_lstclear\n\033[0m");
 	ft_lstclear(&lst1, del);
 	printf("En supprimant la liste ");
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "(null)", (char *) lst1);
 	ft_ok(ft_str_cmp(NULL, (char *) lst1));
-*/
-
-
-	ft_print_list(lst1);
 }

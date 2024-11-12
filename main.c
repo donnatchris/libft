@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include <stddef.h>
-
+/*
 size_t strlcpy(char *dst, const char *src, size_t dstsize) {
     size_t srclen = 0;
     while (src[srclen] != '\0') srclen++;
@@ -46,6 +46,12 @@ char *strnstr(const char *haystack, const char *needle, size_t len) {
         if (needle[j] == '\0') return (char *)(haystack + i);
     }
     return NULL;
+}
+*/
+
+void	del(void *content)
+{
+	//free(content);
 }
 
 void	ft_print_list(t_list *lst)
@@ -674,13 +680,55 @@ int		main(void)
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "element", (char *) lst1->content);
 	ft_ok(ft_str_cmp("element", (char *) lst1->content));
 
-//	LST_ADD_FRONT
-	printf("\033[33m\n********************\nft_lstnew\n\033[0m");
+//	LSTADD_FRONT
+	printf("\033[33m\n********************\nft_lstadd_back\n\033[0m");
 	t_list	*lst2 = ft_lstnew("nouveau premier element");
 	ft_lstadd_front(&lst1, lst2);
 	printf("Avec nouveau premier element ");
 	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "nouveau premier element", (char *) lst1->content);
 	ft_ok(ft_str_cmp("nouveau premier element", (char *) lst1->content));
+
+//	LSTSIZE
+	printf("\033[33m\n********************\nft_lstsize\n\033[0m");
+	printf("Avec une liste de 2 elements ");
+	printf("attendu : \033[33m2\033[0m obtenu : \033[33m%d\033[0m\n", ft_lstsize(lst1));
+	ft_ok(ft_int_cmp(2, ft_lstsize(lst1)));
+
+//	LSTLAST
+	printf("\033[33m\n********************\nft_lstlast\n\033[0m");
+	printf("Avec la liste precedente ");
+	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "element", (char *) ft_lstlast(lst1)->content);
+	ft_ok(ft_str_cmp("element", (char *) ft_lstlast(lst1)->content));
+
+//	LSTADD_BACK
+	printf("\033[33m\n********************\nft_lstadd_back\n\033[0m");
+	printf("Avec dernier element ");
+	t_list	*lst3 = ft_lstnew("dernier element");
+	ft_lstadd_back(&lst1, lst3);
+	t_list	*last = lst1;
+	while (last && last->next)
+		last = last->next;
+	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "dernier element", (char *) last->content);
+	ft_ok(ft_str_cmp("dernier element", (char *) last->content));
+/*
+	LSTADELONE
+	printf("\033[33m\n********************\nft_lstdelone\n\033[0m");
+	printf("En supprimant le dernier element ajoute: ");
+	ft_lstdelone(lst3, &del);
+	last = lst1;
+	while (last && last->next)
+		last = last->next;
+	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "element", (char *) lst3->content);
+	ft_ok(ft_str_cmp("element", (char *) last->content));
+*/
+//	LSTCLEAR
+	printf("\033[33m\n********************\nft_lstclear\n\033[0m");
+	ft_lstclear(&lst1, del);
+	printf("En supprimant la liste ");
+	printf("attendu : \033[33m%s\033[0m obtenu : \033[33m%s\033[0m\n", "(null)", (char *) lst1);
+	ft_ok(ft_str_cmp(NULL, (char *) lst1));
+
+
 
 	ft_print_list(lst1);
 }

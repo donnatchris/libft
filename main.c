@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include <stddef.h>
-/*
+
 size_t strlcpy(char *dst, const char *src, size_t dstsize) {
     size_t srclen = 0;
     while (src[srclen] != '\0') srclen++;
@@ -47,7 +47,6 @@ char *strnstr(const char *haystack, const char *needle, size_t len) {
     }
     return NULL;
 }
-*/
 
 void	del(void *content)
 {
@@ -663,7 +662,6 @@ int		main(void)
 	printf("attendu : \033[33m%c\033[0m obtenu : \n", c1);
 	ft_putchar_fd(c1, 1);
 	printf("\n");
-	printf("\033[33m\nft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd pas testes\n\033[0m");
 	
 //	PUTSTR_FD
 	printf("\033[33m\n********************\nft_putstr_fd\n\033[0m");

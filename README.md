@@ -42,9 +42,16 @@ Writes the character c to the file descriptor fd.
 void	ft_putstr_fd(char *s, int fd);
 
 Writes the string s to the file descriptor fd.
-### 🖥️  void	ft_putendl_fd(char *s, int fd);
+### 🖥️ ft_putendl
+
+void	ft_putendl_fd(char *s, int fd);
+
 Writes the string s followed by '\n' to the file descriptor fd.
-### 🖥️  void	ft_putnbr_fd(int n, int fd);
+
+### 🖥️ ft_putnbr
+
+void	ft_putnbr_fd(int n, int fd);
+
 Writes the integer n to the fils descriptor fd.
 
 
